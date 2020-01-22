@@ -1,14 +1,20 @@
 package main
 
-import "fmt"
-import "net/http"
+import (
+	"os"
 
-func index_handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to Intersect")
+	"github.com/shomali11/slacker"
+)
 
+func handle(request *slacker.Request, response slacker.ResponseWriter) {
+	response.Reply("Hey!")
 }
 
 func main() {
-	http.HandleFunc("/", index_handler)
-	http.ListenAndServe(":8000", nil)
+	bot := slacker.NewClient(os.Getenv("API_TOKEN"))
+	bot.Command("hello", "Say hello", handle)
+	err := bot.Listen()
+	if err != nil {
+		panic(err)
+	}
 }
