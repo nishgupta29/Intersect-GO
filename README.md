@@ -7,4 +7,11 @@ First few commits are basically for learnning GO where i created a simple hello 
 Then i tried creating a simple slack bot in GO, which connects to slack using a API token which is stored in an environment variable "SLACK_API"
 This bot reads a reply from user "hello name" and then displays "hello" in return.
 
-I e dockerised this application using a simple dockerfile which uses golang as a base image.
+I have dockerised this application using a simple dockerfile which uses golang as a base image.
+
+Pre-requisites:
+
+Slack workspace and a bot user with an API token.
+GO 1.13.6 installed
+Docker should be up and running
+
